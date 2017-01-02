@@ -129,7 +129,7 @@ function submitMessage() { // here, we're going to create a function that will c
         // c. Send that mess
         push.send(body);                            // send the AJAX POST request
     });
-    loadMessages();
+    //loadMessages();
 };
 
 function getMessages() {
