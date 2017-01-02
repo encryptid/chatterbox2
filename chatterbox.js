@@ -65,7 +65,9 @@ window.addEventListener('load', function () {
 
     submitMessage();               // run function "submitMessage"
 
-    getMessages();              // run function "getMessages"
+
+    let getBtn = document.querySelector('#get');
+    getBtn.addEventListener('click', getMessages); // upon click of getBtn, run function "getMessages"
 
 });
 
@@ -132,11 +134,9 @@ function submitMessage() { // here, we're going to create a function that will c
 
 function getMessages() {
     console.log('getMessages is running!');
-    let newMsg = new XMLHttpRequest();
-    newMsg.open('GET', 'http://api.queencityiron.com/chats');
-    let getBtn = document.querySelector('#get');
-    getBtn.addEventListener('click', function () {
-        console.log('get button works!');
+        let newMsg = new XMLHttpRequest();
+        newMsg.open('GET', 'http://api.queencityiron.com/chats');
+        newMsg.addEventListener('load', function() {
         let response = JSON.parse(newMsg.responseText);
         // let count = response.chats.length;
         // console.log(count);
@@ -154,7 +154,7 @@ function getMessages() {
             parent.appendChild(msg);
         }
     });
-    newMsg.send();
+            newMsg.send();
 };
 
 
